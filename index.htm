@@ -1,0 +1,19 @@
+<head></head>
+<body>
+  <script type="text/javascript">
+    function redirectToAppStore() {
+      // Use http://itunes.apple.com/linkmaker/ to generate the direct link to your app.
+      window.location = "http://www.apple.com"
+    }
+
+    var deeplink = "myapp://orders/1234"
+    var request = new XMLHttpRequest();
+    request.open("GET", deeplink);
+    request.onerror = function() {
+      //  App isn't installed. Redirect to app store.
+      alert("Sorry. MyApp is not installed on your device. Click OK to download from AppStore.");
+      redirectToAppStore();
+    };
+    request.send(null);
+  </script>
+</body>
